@@ -1,89 +1,121 @@
 ## How to add a page
 
+## Menu
+
+1. [Step 1: Create a New Branch and Clone the Repository](#step-1-create-a-new-branch-and-clone-the-repository)
+2. [Step 2: Copy the Database File into the New Branch](#step-2-copy-the-database-file-into-the-new-branch)
+3. [Step 3: Initialize the Server](#step-3-initialize-the-server)
+4. [Step 4: Start the Application](#step-4-start-the-application)
+5. [Step 5: Modify the Application Files](#step-5-modify-the-application-files)
+6. [Step 6: Register the Application in Settings](#step-6-register-the-application-in-settings)
+7. [Step 7: Run Migrations and Start the Server](#step-7-run-migrations-and-start-the-server)
+
+---
 
 ## Step 1: Create a New Branch and Clone the Repository
 
-1. **Create a new branch** under `main` on GitHub.
-2. **Clone the repository** using SSH:
+1. **Create a new branch** from `main` on GitHub.
+2. **Clone the repository using SSH**:
    ```bash
-   git clone the code and within there chose the ssh
+   git clone git@github.com:AEJJ-Studio-2025/laiyff-web-dev.git
+   ```
+   -Be to choose **SSH** when cloning.
 
+---
 
 ## Step 2: Copy the Database File into the New Branch
 
-1. **Compress the database file** using `7za`:
-   ```bash
-   7za a ddd.7z db.20250222 -paswordxxxxxxx
-   ```
-2. **Clone the repository with the new branch**:
+1. **Clone the repository with the new branch**:
    ```bash
    git clone -b edward-db-practice git@github.com:EDYBIRD/wagtail-dev-practice.git
    ```
-3. **Copy the compressed database file into the repository folder**:
+
+2. **Copy the compressed database file into the repository folder**:
    ```bash
-   cp ddd.7z wagtail-dev-practice/
-   
-for part 3 of step2, the file might not be ddd.7z, it could be db.20250222 so just becareful and remember the file name you named.
+   cp ddd.7z laiyff-web-dev/
+   ```
+   > 🔎 **Note**: The file name might not be `ddd.7z`; it could be `db.20250222.7z` or something else. Double-check the actual file name before copying.
+3. **Decompress the database file** using `7za`:
+   ```bash
+   7za d ddd.7z db.20250222 -p<your-password>
+   ```
+
+---
 
 ## Step 3: Initialize the Server
 
 1. **Navigate to the `utilScripts` directory**:
    ```bash
-   cd <nameofyourownfile>/utilScripts
+   cd laiyff-web-dev/utilScripts
    ```
+
 2. **Run the initialization script**:
    ```bash
-   ./<initialize-script-name>
+   ./initialEnv.sh
    ```
+
+---
 
 ## Step 4: Start the Application
 
-1. **Ensure you are still in the `utilScripts` directory**:
+1. **Ensure you're still in the `utilScripts` directory**:
    ```bash
-   cd <nameofyourownfile>/utilScripts
+   cd laiyff-web-dev/utilScripts
    ```
-2. **Run the script to start the application, providing a name for your website**:
+
+2. **Run the script to start the application** (script name might be something like `startApp`):
    ```bash
-   ./startapp(the name might be different is around the range of stepAPP) <your-name>
-
-
-   ## Step 5: Modify the Application Files
-
-1. **Open the newly created application directory** (named in Step 4) in **VS Code**:
-   ```bash
-   code <your-file-name>
+   ./startApp myApp1
    ```
-2. **Modify the `models.py` file** inside your application directory:
+
+---
+
+## Step 5: Modify the Application Files
+
+1. **Open your app folder in VS Code**:
+   ```bash
+   code <your-app-folder-name>
+   ```
+
+2. **Edit `models.py`** in your `myApp1` folder:
    - Define your data models.
 
-3. **Create a CSS file** inside the `static/css/` directory:
-    ## in the vs code folder your open is under static and css
-   - Add custom styles for your application.
+3. **Create a CSS file** in the `static/css/` folder:
+   - Add custom styles for your page.
 
-4.  **Create an HTML file** inside the template directory:
-  ## in the vs code folder your create template under your file
-   - Add your basic HTML structure.
+4. **Create an HTML file** in the `myApp1\templates` folder:
+   - Add your basic HTML layout and structure.
+
+---
 
 ## Step 6: Register the Application in Settings
 
-1. **you have a `base.py` uder the settings file under the YourWebsiteNameMain, also add the application name there**:
-## you can just do it in vs code
-   - Add the name in the `INSTALLED_APPS` entry.
+1. **Edit the `base.py` file** located in `YourWebsiteNameMain/settings/`:
+   - Add your app to the `INSTALLED_APPS` list:
+   ```python
+   INSTALLED_APPS = [
+       ...
+       'myApp1,
+   ]
+   ```
 
+---
 
 ## Step 7: Run Migrations and Start the Server
 
 1. **Navigate to the `utilScripts` directory**:
    ```bash
-   cd <nameofyourownfile>/utilScripts
-   ```
-2. **Run migrations using the script**:
-   ```bash
-   ./makemigration
-   ```
-3. **Start the server**:
-   ```bash
-   ./runserver
+   cd laiyff-web-dev/utilScripts
    ```
 
-Now, your application is fully registered, migrated, and running on the server.
+2. **Run migrations**:
+   ```bash
+   ./makeMigrations.sh
+   ```
+
+3. **Start the server**:
+   ```bash
+   ./runWebsite.sh
+   ```
+
+---

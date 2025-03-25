@@ -1,4 +1,16 @@
-How to Resync Migrations and Clean Your Wagtail/Django Project
+# How to Resync Migrations and Clean Your Wagtail/Django Project
+
+##  Menu
+
+- [Step 1: Clone the Project Repository](#step-1-clone-the-project-repository)
+- [Step 2: Copy the Database File (Optional)](#step-2-copy-the-database-file-optional)
+- [Step 3: Set Up Environment and Install Dependencies](#step-3-set-up-environment-and-install-dependencies)
+- [Step 4: Clean Old Migrations and Temporary Files](#step-4-clean-old-migrations-and-temporary-files)
+- [Step 5: Make Migrations](#step-5-make-migrations)
+- [Note: Why Clean Migration Files?](#note-why-clean-migration-files)
+
+---
+
 ---
 
 ## Step 1: Clone the Project Repository
