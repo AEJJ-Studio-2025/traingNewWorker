@@ -24,7 +24,7 @@ cd laiyff-web-dev
 
 ---
 
-## Step 2: Copy the Database File (Optional)
+## Step 2: Copy the Database File 
 
 If you have a database snapshot:
 
@@ -41,7 +41,6 @@ Run the initial environment setup script:
 ```bash
 cd utilScripts
 ./initialEnv.sh
-./makeMigration.sh
 ```
 
 This will install all required Python packages from `requirements.txt`.
