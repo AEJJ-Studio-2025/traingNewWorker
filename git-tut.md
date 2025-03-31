@@ -320,7 +320,3 @@ Commit your changes with `git push origin BRANCH_NAME`
 	 git stash
 
 # to be added: useful procedures
-
-
-
-
