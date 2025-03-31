@@ -8,7 +8,8 @@
 	4. [Staging](#staging)
 	5. [Branch](#branch)
 	6. [Merge](#merge)
-	7. [Undo](#undo)
+	7. [Merge request/Pull request](#merge-request)
+	8. [Undo](#undo)
 
 # git install
 
@@ -261,7 +262,14 @@ Solution:
 
     manually resolve each conflict
 
-**Merge request**
+**Example of merging**
+
+    git checkout BRANCH_A           # Step 1: Go to the target branch
+	git pull origin BRANCH_A        # Step 2: Make sure it’s up to date
+	git merge BRANCH_B              # Step 3: Merge the feature branch
+	git push origin BRANCH_A        # Step 4: Push the result to GitHub
+
+## Merge request
 >**Remark: merge request is also called pull request, they are the same.**
 
 Merge request allows someone to review your content before merging.
@@ -271,23 +279,17 @@ Procedure:
 Commit your changes with `git push origin BRANCH_NAME`
 
  1. Go to your GitHub repo
- 2. If you have pushed your commit recently, there should be a prompt showing up in a yellow bar, click on **Compare & pull request** 
+ 2. If you have pushed your commit recently, there should be a prompt showing up in a yellow bar, click on **Compare & pull request** and **skip to step 8**
  3. If the bar didn't show up, go to **Pull request** tab
  4. Click **New pull request**
  5. For **Base** branch, choose the branch that you are merging into
  6. For **Compare** branch, choose the branch that you are merging from
- 7. Click **Create pull request** and fill in details
- 8. Click **Create pull request** to submit the request
+ 7. Click **Create pull request** 
+ 8. Fill in details
+ 9. Click **Create pull request** to submit the request
 ---**Other related commands**
  9. Uploads your local commits on the specified BRANCH to the remote: 	`git push origin BRANCH_NAME`
  10. Downloads the latest changes from the specified branch on GitHub into your local repo, and merges them: `git pull origin BRANCH_NAME`
-
-**Example**
-
-    git checkout BRANCH_A           # Step 1: Go to the target branch
-	git pull origin BRANCH_A        # Step 2: Make sure it’s up to date
-	git merge BRANCH_B              # Step 3: Merge the feature branch
-	git push origin BRANCH_A        # Step 4: Push the result to GitHub
 
 ## Undo
 **Discard unstaged changes:**
